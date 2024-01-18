@@ -1,0 +1,22 @@
+            <h1 class="bg-warning">Template Driven Form</h1>
+            <form [formGroup]="SignIn" (ngSubmit)="onSignIn()">
+                <div class="form-group">
+                    <label  for="email"><h5>Email</h5></label>
+                    <input 
+                    type="email" 
+                    class="form-control" 
+                    formControlName="email"
+                    id="email">
+                    </div>
+                <div class="form-group">
+                    <label  for="username"><h5>Username</h5></label>
+                    <input 
+                    type="username" 
+                    class="form-control"
+                    formControlName="username" 
+                    id="username">
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-primary" type="submit">Sign In</button>
+                </div>  
+        </form>
