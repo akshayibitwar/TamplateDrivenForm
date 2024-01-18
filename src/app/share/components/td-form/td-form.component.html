@@ -1,0 +1,39 @@
+<form #SignIn="ngForm" (ngSubmit)="onSignIn()">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input 
+        type="text" 
+        pattern="[a-zA-Z]+"  
+        ngModel
+        required
+        class="form-control" 
+        name="username" 
+        id="username">
+        <ng-container *ngIf="SignIn.controls['username']?.invalid && SignIn.controls['username']?.touched">
+            <p class="alert alert-warning" *ngIf="SignIn.controls['username']?.hasError('required')">
+                User Name fill is Mandetery...
+            </p>
+            <p class="alert alert-warning" *ngIf="SignIn.controls['username']?.hasError('pattern')">
+                Enter Valid User name....
+            </p>
+        </ng-container>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+        type="text" 
+        ngModel 
+        class="form-control" 
+        required
+        pattern="[a-zA-Z]+"
+        name="email" id="email">
+        <ng-container *ngIf="SignIn.controls['email']?.touched && SignIn.controls['email']?.invalid">
+        <p class="alert alert-danger" *ngIf="SignIn.controls['email']?.hasError('required')">Email is address Mandatory</p>
+        <p class="alert alert-danger" *ngIf="SignIn.controls['email']?.hasError('pattern')">Enter Correct Email</p>
+        </ng-container>
+        
+    </div>
+     <div class="text-right">
+        <button class="btn btn-primary" type="submit">Sign In</button>
+     </div>
+</form>
